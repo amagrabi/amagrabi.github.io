@@ -2,162 +2,193 @@
 <html lang="en">
 
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Amadeus Magrabi. Data Science, Machine Learning, Python.">
-    <meta name="keywords" content="Amadeus Magrabi, Data Science, Machine Learning, Python, Berlin">
-    <meta name="author" content="Amadeus Magrabi">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Amadeus Magrabi - Machine Learning, Data Science, Python, Neuroscience, Decision-Making">
     <title>Amadeus Magrabi</title>
+    <!-- Set the website favicon -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Custom CSS -->
-    <link href="css/scrolling-nav.css" rel="stylesheet">
+        /* Apply a white background and black text */
+        body {
+            background-color: #fff;
+            color: #000;
+            font-family: Arial, sans-serif;
+            padding-top: 60px;
+            /* Add padding to accommodate the fixed menu */
+        }
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        /* Create a fixed top menu */
+        .top-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #000;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            /* Center the menu items horizontally */
+            align-items: center;
+            padding: 10px 0;
+            /* Adjust padding */
+        }
 
-    <link rel="shortcut icon" href="img/favicon.ico" />
+        /* Style the menu items */
+        .top-menu ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
 
+        .top-menu li {
+            margin: 0 10px;
+            /* Increased spacing between menu items */
+            padding: 0;
+        }
+
+        .top-menu a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Add a smooth scroll effect to section links */
+        .top-menu a[href^="#"] {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .top-menu a[href^="#"]:hover {
+            color: #ccc;
+        }
+
+        /* Style the logo */
+        .logo img {
+            width: 30%;
+            /* Image size */
+            height: auto;
+        }
+
+        /* Create a centered container */
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Add some spacing to headings and paragraphs */
+        h1,
+        h2,
+        p {
+            margin-bottom: 20px;
+        }
+
+        /* Style sections */
+        .section {
+            padding: 40px 0 20px;
+        }
+
+        /* Style social media icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            margin: 0 40px;
+            font-size: 30px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: #333;
+        }
+
+        /* Style links */
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        /* Style the profile image */
+        .profile-image {
+            max-width: 60%;
+            height: auto;
+            margin: 0 auto;
+            /* Center the image */
+        }
+
+        /* Center the text in the About section */
+        .about-text {
+            text-align: left;
+            margin-left: auto;
+            /* Start text from the middle */
+            margin-right: auto;
+        }
+    </style>
 </head>
 
-<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
-
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top"> </a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a class="page-scroll" href="#page-top"></a>
-                    </li>
-<!--                     <li>
-                        <a class="page-scroll" href="#social">Social</a>
-                    </li> -->
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+<body>
+    <div class="top-menu">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="img/brain_full_r.jpg" alt="Amadeus Magrabi - Logo">
         </div>
-        <!-- /.container -->
-    </nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#social">Social Media</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <!-- Profile image -->
+        <img src="img/photo.jpg" alt="Amadeus Magrabi" class="profile-image">
 
-    <!-- Intro Section -->
-    <section id="intro" class="intro-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12" align="center">
-
-                	<div style="float:center" >
-            			<img src="img/profile2.jpg" alt="profile" style="height:500px;border:0;" hspace="80"/>
-            		</div>
-
-        			<div style="float:center" >
-
-	                    <h1>Amadeus Magrabi</h1>
-	                    <h3><i>Data Science - Machine Learning - Python</i></h3>
-
-	                    <a href="https://twitter.com/AmadeusMagrabi" target="_blank">
-	                        <img src="img/twitter.png" alt="twitter" style="height:42px;border:0;margin:30px 25px">
-	                    </a>
-	                    <a href="https://www.linkedin.com/in/amadeusmagrabi/" target="_blank">
-	                        <img src="img/linkedin.png" alt="linkedin" style="height:42px;border:0;margin:30px 25px">
-	                    </a>
-	                    <a href="https://github.com/amagrabi" target="_blank">
-	                        <img src="img/github.png" alt="github" style="height:42px;border:0;margin:30px 25px">
-	                    </a>
-	                    <a href="https://medium.com/@amadeus.magrabi" target="_blank">
-	                        <img src="img/medium.png" alt="medium" style="height:42px;border:0;margin:30px 25px">
-	                    </a>
-                        <a href="mailto:amadeus.magrabi@gmail.com">
-	                        <img src="img/mail.jpg" alt="twitter" style="height:42px;border:0;margin:30px 25px">
-	                    </a>
-
-            		</div>
-
-<!--             		<div style="float:center" >
-            			<img src="img/brain_full.jpg" alt="brain" style="height:80px;border:0;" hspace="80"/>
-            		</div> -->
-
-                </div>
+        <section id="about" class="section">
+            <h1>Amadeus Magrabi</h1>
+            <div class="about-text">
+                <p>I am passionate about machine learning, data science, Python, neuroscience and decision-making. And
+                    chess, snowboarding and piano.</p>
             </div>
-        </div>
-    </section>
-
-    <section id="blog" class="blog-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12" align="center">
-                	<div style="float:center" >
-	                    <h2>Recent Blog Posts</h2>
-            		</div>
-                </div>
+        </section>
+        <section id="social" class="section">
+            <h1>Social Media</h1>
+            <div class="social-icons">
+                <a href="https://twitter.com/AmadeusMagrabi" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/amadeusmagrabi" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://medium.com/@amadeus.magrabi" target="_blank"><i class="fab fa-medium"></i></a>
+                <a href="https://github.com/amagrabi" target="_blank"><i class="fab fa-github"></i></a>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <div id="medium-widget"></div>
-    <script src="https://medium-widget.pixelpoint.io/widget.js"></script>
-    <script>MediumWidget.Init({renderTo: '#medium-widget', params: {"resource":"https://medium.com/@amadeus.magrabi","postsPerLine":2,"limit":4,"picture":"small","fields":["description","author","claps"],"ratio":"landscape"}})</script>
+    <!-- Include Font Awesome JavaScript for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
 
+    <!-- JavaScript for smooth scrolling -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
 
-    <!-- Social Section -->
-<!--     <section id="services" class="services-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1>Social</h1>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Scrolling Nav JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/scrolling-nav.js"></script>
-	
-    <!-- Start of StatCounter Code for Default Guide -->
-    <script type="text/javascript">
-        var sc_project=7666004; 
-	var sc_invisible=1; 
-	var sc_security="ec0f441e"; 
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
-    <script type="text/javascript"
-    src="http://www.statcounter.com/counter/counter.js"></script>
-    <noscript><div class="statcounter"><a title="tumblr
-    visitor" href="http://statcounter.com/tumblr/"
-    target="_blank"><img class="statcounter"
-    src="http://c.statcounter.com/7666004/0/ec0f441e/1/"
-    alt="tumblr visitor"></a></div></noscript>
-    <!-- End of StatCounter Code for Default Guide -->
-
 </body>
 
 </html>
