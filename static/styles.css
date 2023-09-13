@@ -1,0 +1,71 @@
+/* styles.css */
+
+.publications-section {
+    margin-top: 40px;
+}
+
+.publications-section h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.publications-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.publications-section li {
+    margin-bottom: 10px;
+}
+
+ul.publications {
+    list-style-type: none;
+    padding-left: 1em;
+    text-indent: -1em;
+}
+
+ul.publications a {
+    color: darkblue;
+    text-decoration: underline;
+  }
+
+.blog-post {
+    flex: 0 0 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    border: 1px solid #e8e8e8f9;
+    padding: 15px;
+    background-color: #fff;
+}
+
+.blog-post p {
+    margin: 0 0 5px;
+    font-style: italic;
+    font-size: 16px;
+}
+
+.blog-post img {
+    max-width: 90%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.blog-post a.read-more {
+    display: block;
+    margin-top: 10px;
+}
+
+.blog-posts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.blog-post h2 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+}
