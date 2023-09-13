@@ -1,0 +1,29 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "isort.args": [
+        "--profile",
+        "black",
+    ],
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "python.envFile": "${workspaceFolder}/.local.env",
+    "python.languageServer": "Pylance",
+    "debug.internalConsoleOptions": "neverOpen",
+    "jupyter.notebookFileRoot": "${workspaceFolder}",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+    },
+    "black-formatter.args": [
+        "-l",
+        "119"
+    ],
+    "autoDocstring.docstringFormat": "sphinx-notypes",
+    "autoDocstring.generateDocstringOnEnter": true,
+    "autoDocstring.startOnNewLine": true,
+    "autoDocstring.guessTypes": false,
+    "autoDocstring.quoteStyle": "\"\"\"",
+    "autoDocstring.includeName": false
+}

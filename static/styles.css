@@ -1,52 +1,107 @@
 /* styles.css */
 
-.container {
-    max-width: 1200px; /* Set the max-width according to your layout */
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin: 0 auto;
-    padding: 0 20px; /* Add horizontal padding to the container */
+}
+
+.video-container iframe {
+    flex: 0 0 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.experience-table td {
+    padding: 10px;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.experience-table tr:last-child td {
+    padding-bottom: 0;
+}
+
+.experience-table a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1200px;
+    /* Set the max-width according to your layout */
+    margin: 0 auto;
+    padding: 0 20px;
+    /* Add horizontal padding to the container */
 }
 
 .heading-container {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Change to space-between to extend the lines */
-    position: relative; /* Add position relative to place the h1 element above the lines */
+    justify-content: space-between;
+    /* Change to space-between to extend the lines */
+    position: relative;
+    /* Add position relative to place the h1 element above the lines */
     margin-bottom: 20px;
-    width: 100%; /* Make the heading-container full width */
+    width: 100%;
+    /* Make the heading-container full width */
 }
 
 .heading-container h1 {
     margin: 0;
     font-size: 24px;
-    position: absolute; /* Set position to absolute to place h1 above the lines */
-    left: 50%; /* Center the h1 element */
-    transform: translateX(-50%); /* Adjust the position */
-    background-color: white; /* Add background color to cover the lines */
-    padding: 0 10px 0px; /* Add horizontal padding to prevent line overlap and padding-bottom for space below the heading */
+    position: absolute;
+    /* Set position to absolute to place h1 above the lines */
+    left: 50%;
+    /* Center the h1 element */
+    transform: translateX(-50%);
+    /* Adjust the position */
+    background-color: white;
+    /* Add background color to cover the lines */
+    padding: 0 10px 0px;
+    /* Add horizontal padding to prevent line overlap and padding-bottom for space below the heading */
 }
 
 .line {
     flex-grow: 1;
-    height: 1px; /* Adjust the height value to change the thickness of the line */
-    background-color: lightgray; /* Change the color of the line */
-    margin: 0; /* Remove the margin values to make the line expand to the edges */
+    height: 1px;
+    /* Adjust the height value to change the thickness of the line */
+    background-color: lightgray;
+    /* Change the color of the line */
+    margin: 0;
+    /* Remove the margin values to make the line expand to the edges */
 }
 
 .section-text-wrapper {
-    margin-top: 40px; /* Adjust this value to control the space between the heading and the section text */
+    margin-top: 40px;
+    /* Adjust this value to control the space between the heading and the section text */
     padding-left: 20px;
     padding-right: 20px;
 }
 
-.section-text-wrapper.publications-section > ul {
-  list-style-type: none;
-  padding: 0;
-  padding-left: 40px;
-  padding-right: 40px;
+.section-text-wrapper.publications-section>ul {
+    list-style-type: none;
+    padding: 0;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
-.section-text-wrapper.publications-section > li {
-  margin-bottom: 10px;
+.section-text-wrapper.publications-section>li {
+    margin-bottom: 10px;
 }
 
 .section-heading {
@@ -89,7 +144,7 @@ ul.publications li {
 ul.publications a {
     color: rgb(90, 90, 91);
     text-decoration: underline;
-  }
+}
 
 .blog-post {
     flex: 0 0 calc(50% - 20px);

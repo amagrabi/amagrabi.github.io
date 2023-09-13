@@ -2,4 +2,4 @@ beautifulsoup4
 flask
 feedparser
 gunicorn
-scholarly
+requests
