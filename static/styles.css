@@ -1,6 +1,7 @@
 /* styles.css */
 
-.video-container {
+/* TODO */
+/* .video-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -24,6 +25,11 @@
     left: 0;
     width: 100%;
     height: 100%;
+} */
+
+table.experience-table {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .experience-table td {
@@ -91,6 +97,8 @@
     /* Adjust this value to control the space between the heading and the section text */
     padding-left: 20px;
     padding-right: 20px;
+    box-sizing: border-box;
+    max-width: calc(100% - 40px);
 }
 
 .section-text-wrapper.publications-section>ul {
