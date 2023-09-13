@@ -1,5 +1,58 @@
 /* styles.css */
 
+.container {
+    max-width: 1200px; /* Set the max-width according to your layout */
+    margin: 0 auto;
+    padding: 0 20px; /* Add horizontal padding to the container */
+}
+
+.heading-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Change to space-between to extend the lines */
+    position: relative; /* Add position relative to place the h1 element above the lines */
+    margin-bottom: 20px;
+    width: 100%; /* Make the heading-container full width */
+}
+
+.heading-container h1 {
+    margin: 0;
+    font-size: 24px;
+    position: absolute; /* Set position to absolute to place h1 above the lines */
+    left: 50%; /* Center the h1 element */
+    transform: translateX(-50%); /* Adjust the position */
+    background-color: white; /* Add background color to cover the lines */
+    padding: 0 10px 0px; /* Add horizontal padding to prevent line overlap and padding-bottom for space below the heading */
+}
+
+.line {
+    flex-grow: 1;
+    height: 1px; /* Adjust the height value to change the thickness of the line */
+    background-color: lightgray; /* Change the color of the line */
+    margin: 0; /* Remove the margin values to make the line expand to the edges */
+}
+
+.section-text-wrapper {
+    margin-top: 40px; /* Adjust this value to control the space between the heading and the section text */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.section-text-wrapper.publications-section > ul {
+  list-style-type: none;
+  padding: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.section-text-wrapper.publications-section > li {
+  margin-bottom: 10px;
+}
+
+.section-heading {
+    margin: 0;
+}
+
 .publications-section {
     margin-top: 40px;
 }
@@ -20,12 +73,21 @@
 
 ul.publications {
     list-style-type: none;
-    padding-left: 1em;
-    text-indent: -1em;
+    padding-left: 0;
+    text-indent: 0;
+}
+
+ul.publications li {
+    padding-left: 2em;
+    text-indent: -2em;
+}
+
+.section-text-wrapper.publications-section {
+    text-align: left;
 }
 
 ul.publications a {
-    color: darkblue;
+    color: rgb(90, 90, 91);
     text-decoration: underline;
   }
 
@@ -34,7 +96,7 @@ ul.publications a {
     max-width: calc(50% - 20px);
     box-sizing: border-box;
     margin-bottom: 20px;
-    border: 1px solid #e8e8e8f9;
+    border: 1px dashed #e8e8e8f9;
     padding: 15px;
     background-color: #fff;
 }
@@ -42,7 +104,7 @@ ul.publications a {
 .blog-post p {
     margin: 0 0 5px;
     font-style: italic;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .blog-post img {

@@ -144,6 +144,21 @@
             margin-right: auto;
             margin-left: 5%; /* Adjust this value to move the text more to the right */
         }
+
+        /* Horizontal line styles */
+        .heading-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .line {
+            flex-grow: 1;
+            height: 1px; /* Adjust the height value to change the thickness of the line */
+            background-color: lightgray; /* Change the color of the line */
+            margin: 0 15px; /* Adjust the margin values to increase or decrease the distance between the lines and the text */
+        }
     </style>
 </head>
 
@@ -155,7 +170,7 @@
         </div>
         <ul>
             <li><a href="#about">About</a></li>
-            <li><a href="#social">Social Media</a></li>
+            <li><a href="#social">Socials</a></li>
             <li><a href="#blog-posts">Blog Posts</a></li>
             <li><a href="#publications">Publications</a></li>
         </ul>
@@ -165,78 +180,116 @@
         <img src="{{ url_for('static', filename='img/photo.jpg') }}" alt="Amadeus Magrabi" class="profile-image">
 
         <section id="about" class="section">
-            <h1>Amadeus Magrabi</h1>
-            <div class="about-text">
-                <p>Passionate about machine learning, data science, Python, neuroscience and decision-making. And
-                    chess, snowboarding, gaming and piano.</p>
+            <div class="heading-container">
+                <div class="line"></div>
+                <h1>Amadeus Magrabi</h1>
+                <div class="line"></div>
+            </div>
+            <div class="section-text-wrapper">
+                <div class="about-text">
+                    <p>Passionate about machine learning, data science, Python, neuroscience and decision-making. And
+                        chess, snowboarding, gaming and piano.</p>
+                </div>
             </div>
         </section>
 
         <section id="social" class="section">
-            <h1>Social Media</h1>
-            <div class="social-icons">
-                <a href="https://twitter.com/AmadeusMagrabi" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/in/amadeusmagrabi" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://medium.com/@amadeus.magrabi" target="_blank"><i class="fab fa-medium"></i></a>
-                <a href="https://github.com/amagrabi" target="_blank"><i class="fab fa-github"></i></a>
+            <div class="heading-container">
+              <div class="line"></div>
+              <h1>Socials</h1>
+              <div class="line"></div>
             </div>
-        </section>
+            <div class="section-text-wrapper">
+              <div class="social-icons">
+                <div class="icon-container">
+                  <a href="https://twitter.com/AmadeusMagrabi" target="_blank"><i class="fab fa-twitter"></i></a>
+                  <p>Twitter</p>
+                </div>
+                <div class="icon-container">
+                  <a href="https://www.linkedin.com/in/amadeusmagrabi" target="_blank"><i class="fab fa-linkedin"></i></a>
+                  <p>LinkedIn</p>
+                </div>
+                <div class="icon-container">
+                  <a href="https://medium.com/@amadeus.magrabi" target="_blank"><i class="fab fa-medium"></i></a>
+                  <p>Medium</p>
+                </div>
+                <div class="icon-container">
+                  <a href="https://github.com/amagrabi" target="_blank"><i class="fab fa-github"></i></a>
+                  <p>GitHub</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
 
         <section id="blog-posts" class="section">
-            <h1>Blog Posts</h1>
-            <div class="blog-posts-container">
-                <!-- Blog post loop -->
-                {% for post in posts %}
-                  <div class="blog-post">
-                    <a href="{{ post.link }}" target="_blank">
-                      <h2>{{ post.title }}</h2>
-                    </a>
-                    <p>{{ post.published }}</p>
-                    <a href="{{ post.link }}" target="_blank">
-                      <img src="{{ post.image }}" alt="{{ post.title }}">
-                    </a>
-                    <a href="{{ post.link }}" target="_blank" class="read-more">➜ Read more</a>
-                  </div>
-                {% endfor %}
+            <div class="heading-container">
+                <div class="line"></div>
+                <h1>Blog Posts</h1>
+                <div class="line"></div>
+            </div>
+            <div class="section-text-wrapper">
+                <div class="blog-posts-container">
+                    <!-- Blog post loop -->
+                    {% for post in posts %}
+                    <div class="blog-post">
+                        <a href="{{ post.link }}" target="_blank">
+                        <h2>{{ post.title }}</h2>
+                        </a>
+                        <p>{{
+                            post.published }}</p>
+                            <a href="{{ post.link }}" target="_blank">
+                            <img src="{{ post.image }}" alt="{{ post.title }}">
+                            </a>
+                            <a href="{{ post.link }}" target="_blank" class="read-more">➜ Read</a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+
+            <div id="publications">
+                <div class="heading-container">
+                  <div class="line"></div>
+                  <h1>Publications</h1>
+                  <div class="line"></div>
+                </div>
+                <div class="section-text-wrapper publications-section">
+                  <ul class="publications">
+                    <li><strong>Magrabi, A.</strong>, Beck, A., Schad, D.J., Stoppel, C.M, Lett, T.A., Charlet, K., Kiefer, F., Heinz, A. & Walter, H. (2022). <strong>Alcohol Dependence decreases Functional Activation of the Caudate Nucleus during Model-Based Decision Processes.</strong> <em>Alcoholism: Clinical and Experimental Research</em>, 46(5), 749–58. <a href="http://doi.org/10.1111/acer.14812" target="_blank">http://doi.org/10.1111/acer.14812</a></li>
+                    <li><strong>Magrabi, A.</strong>, Ludwig, V.U., Stoppel, C.M., Paschke, L.M., Wisniewski, D., Heekeren, H., & Walter, H. (2022). <strong>Dynamic Computation of Value Signals via a Common Neural Network in Multi-Attribute Decision-Making.</strong> <em>Social Cognitive and Affective Neuroscience</em>, 17(7), 683–693. <a href="http://doi.org/10.1093/scan/nsab125" target="_blank">http://doi.org/10.1093/scan/nsab125</a></li>
+                    <li>Paschke, L.M., Dörfel, D., Steimke, R., Trempler, I., <strong>Magrabi, A.</strong>, Ludwig, V.U., Schubert, S., Stelzel, C. & Walter, H. (2016). <strong>Individual Differences in Self-Reported Self-Control Predict Successful Emotion Regulation.</strong> <em>Social Cognitive and Affective Neuroscience</em>, 11 (8), 1193–1204. <a href="https://doi.org/10.1093/scan/nsw036" target="_blank">https://doi.org/10.1093/scan/nsw036</a></li>
+                    <li>Ludwig, V.U., Stelzel, C., Krutiak, H., <strong>Magrabi, A.</strong>, Steimke, R., Paschke, L.M., Kathmann, N., & Walter, H. (2014). <strong>The Suggestible Brain: Posthypnotic Effects on Value-Based Decision-Making.</strong> <em>Social Cognitive and Affective Neuroscience</em>, 9(9), 1281–1288. <a href="https://doi.org/10.1093/scan/nst110" target="_blank">https://doi.org/10.1093/scan/nst110</a></li>
+                    <li>Gaebler, M., Paschke, L.M., & <strong>Magrabi, A.</strong> (2016). <strong>Neurowissenschaft.</strong> In: M. Kühler & M. Rüther (Ed.), <em>Handbuch Handlungstheorie: Grundlagen, Kontexte, Perspektiven</em> (pp. 414-421). J.B. Metzler. <a href="https://doi.org/10.1007/978-3-476-05359-6" target="_blank">https://doi.org/10.1007/978-3-476-05359-6</a></li>
+                    <li><strong>Magrabi, A.</strong> & Bach, J. (2013). <strong>Entscheidungsfindung.</strong> In: A. Stephan & S. Walter (Ed.), <em>Handbuch Kognitionswissenschaft</em> (pp. 274-289). J.B. Metzler. <a href="https://doi.org/10.1007/978-3-476-05288-9" target="_blank">https://doi.org/10.1007/978-3-476-05288-9</a></li>
+                    <li><strong>Magrabi, A.</strong> (2015). <strong>Die Wiederentdeckung des Willens.</strong> <em>Gehirn &amp; Geist</em>, 5, 199-205. <a href="https://www.spektrum.de/news/die-wiederentdeckung-des-willens/1341194" target="_blank">https://www.spektrum.de/news/die-wiederentdeckung-des-willens/1341194</a></li>
+                  </ul>
+                </div>
               </div>
-        </section>
-
-        <div class="publications-section" id="publications">
-            <h1>Publications</h1>
-            <ul class="publications">
-                <li><strong>Magrabi, A.</strong>, Beck, A., Schad, D.J., Stoppel, C.M, Lett, T.A., Charlet, K., Kiefer, F., Heinz, A. & Walter, H. (2022). <strong>Alcohol Dependence decreases Functional Activation of the Caudate Nucleus during Model-Based Decision Processes.</strong> <em>Alcoholism: Clinical and Experimental Research</em>, 46(5), 749–58. <a href="http://doi.org/10.1111/acer.14812">http://doi.org/10.1111/acer.14812</a></li>
-                <li><strong>Magrabi, A.</strong>, Ludwig, V.U., Stoppel, C.M., Paschke, L.M., Wisniewski, D., Heekeren, H., & Walter, H. (2022). <strong>Dynamic Computation of Value Signals via a Common Neural Network in Multi-Attribute Decision-Making.</strong> <em>Social Cognitive and Affective Neuroscience</em>, 17(7), 683–693. <a href="http://doi.org/10.1093/scan/nsab125">http://doi.org/10.1093/scan/nsab125</a></li>
-                <li>Paschke, L.M., Dörfel, D., Steimke, R., Trempler, I., <strong>Magrabi, A.</strong>, Ludwig, V.U., Schubert, S., Stelzel, C. & Walter, H. (2016). <strong>Individual Differences in Self-Reported Self-Control Predict Successful Emotion Regulation.</strong> <em>Social Cognitive and Affective Neuroscience</em>, 11 (8), 1193–1204. <a href="https://doi.org/10.1093/scan/nsw036">https://doi.org/10.1093/scan/nsw036</a></li>
-                <li>Ludwig, V.U., Stelzel, C., Krutiak, H., <strong>Magrabi, A.</strong>, Steimke, R., Paschke, L.M., Kathmann, N., & Walter, H. (2014). <strong>The Suggestible Brain: Posthypnotic Effects on Value-Based Decision-Making.</strong> <em>Social Cognitive and Affective Neuroscience</em>, 9(9), 1281–1288. <a href="https://doi.org/10.1093/scan/nst110">https://doi.org/10.1093/scan/nst110</a></li>
-                <li>Gaebler, M., Paschke, L.M., & <strong>Magrabi, A.</strong> (2016). <strong>Neurowissenschaft.</strong> In: M. Kühler & M. Rüther (Ed.), <em>Handbuch Handlungstheorie: Grundlagen, Kontexte, Perspektiven</em> (pp. 414-421). J.B. Metzler. <a href="https://doi.org/10.1007/978-3-476-05359-6">https://doi.org/10.1007/978-3-476-05359-6</a></li>
-                <li><strong>Magrabi, A.</strong> & Bach, J. (2013). <strong>Entscheidungsfindung.</strong> In: A. Stephan & S. Walter (Ed.), <em>Handbuch Kognitionswissenschaft</em> (pp. 274-289). J.B. Metzler. <a href="https://doi.org/10.1007/978-3-476-05288-9">https://doi.org/10.1007/978-3-476-05288-9</a></li>
-                <li><strong>Magrabi, A.</strong> (2015). <strong>Die Wiederentdeckung des Willens.</strong> <em>Gehirn &amp; Geist</em>, 5, 199-205. <a href="https://www.spektrum.de/news/die-wiederentdeckung-des-willens/1341194">https://www.spektrum.de/news/die-wiederentdeckung-des-willens/1341194</a></li>
             </ul>
-          </div>
+        </div>
+      </div>
 
+        <!-- Include Font Awesome JavaScript for icons -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
 
-    </div>
+        <!-- JavaScript for smooth scrolling -->
+        <script>
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+              anchor.addEventListener('click', function (e) {
+                e.preventDefault();
 
-    <!-- Include Font Awesome JavaScript for icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
+                const target = document.querySelector(this.getAttribute('href'));
+                const headerHeight = 40; // Adjust this value according to the height of your fixed header
+                const scrollToPosition = target.offsetTop - headerHeight;
 
-    <!-- JavaScript for smooth scrolling -->
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+                window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
+              });
+            });
+          </script>
 
-            const target = document.querySelector(this.getAttribute('href'));
-            const headerHeight = 20; // Adjust this value according to the height of your fixed header
-            const scrollToPosition = target.offsetTop - headerHeight;
+    </body>
 
-            window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
-          });
-        });
-      </script>
+    </html>
 
-</body>
-
-</html>
-
-{% endblock %}
+    {% endblock %}
