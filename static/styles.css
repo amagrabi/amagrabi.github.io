@@ -1,5 +1,52 @@
 /* styles.css */
 
+/* For mobile devices with a max-width of 480px */
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        padding: 0;
+    }
+
+    .video-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    iframe {
+        width: 100%;
+        max-width: 480px;
+        margin: 10px 0;
+    }
+
+    .heading-container h1 {
+        font-size: 20px;
+    }
+
+    .blog-posts-container {
+        width: 100%;
+        padding: 0;
+    }
+
+    .section-text-wrapper {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .blog-post {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 20px;
+    }
+
+    .top-menu li {
+        margin: 0 5px;
+    }
+
+    .top-menu a {
+        font-size: 14px;
+    }
+}
+
 .video-container {
     display: flex;
     justify-content: space-between;
