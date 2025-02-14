@@ -3,11 +3,36 @@ from datetime import datetime
 import feedparser
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, send_from_directory, url_for
+from flask_talisman import Talisman
 
 app = Flask(__name__)
 
-import requests
-from bs4 import BeautifulSoup
+Talisman(app, 
+    content_security_policy={
+        'default-src': [
+            "'self'",
+            "'unsafe-inline'",
+            "'unsafe-eval'",
+            "cdnjs.cloudflare.com",
+            "*.googletagmanager.com",
+            "*.google-analytics.com",
+            "www.youtube.com",
+        ],
+        'img-src': [
+            "'self'",
+            "data:",
+            "*.medium.com",
+            "miro.medium.com",
+            "cdn-images-1.medium.com",
+        ],
+        'frame-src': [
+            "'self'",
+            "www.youtube.com",
+        ],
+    },
+    content_security_policy_nonce_in=['script-src']
+)
+
 
 
 @app.route("/favicon.ico")
