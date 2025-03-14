@@ -1,0 +1,35 @@
+[project]
+name = "amagrabi-github-io"
+version = "0.1.0"
+requires-python = ">=3.12.0,<3.13.0"
+authors = [
+  {name = "Amadeus Magrabi"},
+]
+description = "Personal website of Amadeus Magrabi"
+readme = "README.md"
+dependencies = [
+    "beautifulsoup4",
+    "flask",
+    "flask-talisman",
+    "feedparser",
+    "gunicorn",
+    "requests",
+    "lxml",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit",
+    "ruff",
+]
+
+[project.urls]
+Repository = "https://github.com/amagrabi/amagrabi.github.io"
+
+[tool.setuptools]
+packages = []
+py-modules = ["app"]
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
