@@ -2,6 +2,6 @@ beautifulsoup4==4.12.2
 flask==2.3.3
 flask-talisman==1.0.0
 feedparser==6.0.10
-gunicorn==21.2.0
+gunicorn==22.0.0
 requests==2.31.0
 lxml==4.9.3
