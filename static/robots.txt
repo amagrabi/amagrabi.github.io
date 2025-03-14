@@ -1,0 +1,9 @@
+# robots.txt for amadeusmagrabi.com
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.amadeusmagrabi.com/sitemap.xml
+
+# Crawl-delay directive
+# Crawl-delay: 10

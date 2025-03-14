@@ -1,226 +1,659 @@
 /* styles.css */
 
-/* For mobile devices with a max-width of 480px */
-@media (max-width: 480px) {
-    .container {
-        width: 100%;
-        padding: 0;
-    }
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Nunito+Sans:wght@400;600;700&display=swap');
 
-    .video-container {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    iframe {
-        width: 100%;
-        max-width: 480px;
-        margin: 10px 0;
-    }
-
-    .heading-container h1 {
-        font-size: 20px;
-    }
-
-    .blog-posts-container {
-        width: 100%;
-        padding: 0;
-    }
-
-    .section-text-wrapper {
-        max-width: 100%;
-        padding: 0;
-    }
-
-    .blog-post {
-        flex: 0 0 100% !important;
-        max-width: 100% !important;
-        margin-bottom: 20px;
-    }
-
-    .top-menu li {
-        margin: 0 5px;
-    }
-
-    .top-menu a {
-        font-size: 14px;
-    }
+:root {
+  /* Light mode variables */
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --heading-color: #222222;
+  --accent-color: #236fa1;
+  --nav-hover-color: #999999;
+  --social-icon-color: #222222;
+  --social-hover-color: #555555;
+  --card-bg: #f8f9fa;
+  --border-color: #e0e0e0;
+  --menu-bg: #000000;
+  --menu-text: #ffffff;
+  --line-color: #e0e0e0;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
 }
 
-.video-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap;
+/* Dark mode variables */
+.dark-mode {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --heading-color: #ffffff;
+  --accent-color: #64b5f6;
+  --nav-hover-color: #cccccc;
+  --social-icon-color: #bbbbbb;
+  --social-hover-color: #dddddd;
+  --card-bg: #1e1e1e;
+  --border-color: #333333;
+  --menu-bg: #000000;
+  --menu-text: #ffffff;
+  --line-color: #444444;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-iframe {
-    margin: 0 10px;
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-table.experience-table {
-    margin-left: auto;
-    margin-right: auto;
+/* Apply base styles */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Roboto', Arial, sans-serif;
+  padding-top: 70px;
+  line-height: 1.6;
+  transition: var(--transition);
 }
 
-.experience-table td {
-    padding: 10px;
-    vertical-align: middle;
-    text-align: left;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito Sans', Arial, sans-serif;
+  color: var(--heading-color);
+  margin-bottom: 0.5rem;
 }
 
-.experience-table tr:last-child td {
-    padding-bottom: 0;
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: var(--transition);
 }
 
-.experience-table a {
-    color: inherit;
-    text-decoration: underline;
+a:hover {
+  color: var(--nav-hover-color);
 }
 
+/* Create a fixed top menu */
+.top-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--menu-bg);
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  height: 60px; /* Fixed height for consistency */
+}
+
+/* Style the menu items */
+.top-menu ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.top-menu li {
+  margin: 0 15px;
+  padding: 0;
+}
+
+.top-menu a {
+  color: var(--menu-text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+/* Add a smooth scroll effect to section links */
+.top-menu a[href^="#"] {
+  transition: var(--transition);
+}
+
+.top-menu a[href^="#"]:hover {
+  color: var(--nav-hover-color);
+}
+
+/* Style the logo */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Dark mode toggle positioning */
+.theme-toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Create a centered container */
 .container {
-    max-width: 1200px;
-    /* Set the max-width according to your layout */
-    margin: 0 auto;
-    padding: 0 20px;
-    /* Add horizontal padding to the container */
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
 }
 
+/* Profile image styling */
+.profile-image {
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  height: auto;
+  margin: 20px auto 40px;
+  transition: var(--transition);
+}
+
+/* Section styling */
+.section {
+  margin-bottom: 40px; /* Reduced from 60px to 40px */
+  padding: 20px 0;
+}
+
+/* Add specific styling for blog posts section */
+#blog-posts.section {
+  margin-bottom: 30px;
+  padding: 15px 0;
+}
+
+/* Center the text in the About section */
+.about-text {
+  max-width: 800px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-text p {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+#about .section-text-wrapper {
+  text-align: center;
+}
+
+/* Horizontal line styles */
 .heading-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* Change to space-between to extend the lines */
-    position: relative;
-    /* Add position relative to place the h1 element above the lines */
-    margin-bottom: 20px;
-    width: 100%;
-    /* Make the heading-container full width */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+/* Specific styling for blog posts heading */
+#blog-posts .heading-container {
+  margin-bottom: 20px;
 }
 
 .heading-container h1 {
-    margin: 0;
-    font-size: 24px;
-    position: absolute;
-    /* Set position to absolute to place h1 above the lines */
-    left: 50%;
-    /* Center the h1 element */
-    transform: translateX(-50%);
-    /* Adjust the position */
-    background-color: white;
-    /* Add background color to cover the lines */
-    padding: 0 10px 0px;
-    /* Add horizontal padding to prevent line overlap and padding-bottom for space below the heading */
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 0 20px;
+  text-align: center;
 }
 
 .line {
-    flex-grow: 1;
-    height: 1px;
-    /* Adjust the height value to change the thickness of the line */
-    background-color: lightgray;
-    /* Change the color of the line */
-    margin: 0;
-    /* Remove the margin values to make the line expand to the edges */
+  flex-grow: 1;
+  height: 1px;
+  background-color: var(--line-color);
+  margin: 0 15px;
 }
 
+/* Section text wrapper */
 .section-text-wrapper {
-    margin-top: 40px;
-    /* Adjust this value to control the space between the heading and the section text */
-    padding-left: 20px;
-    padding-right: 20px;
-    box-sizing: border-box;
-    max-width: calc(100% - 40px);
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.section-text-wrapper.publications-section>ul {
-    list-style-type: none;
-    padding: 0;
-    padding-left: 40px;
-    padding-right: 40px;
+/* Specific styling for blog posts section wrapper */
+#blog-posts .section-text-wrapper {
+  padding: 0 15px;
 }
 
-.section-text-wrapper.publications-section>li {
-    margin-bottom: 10px;
+/* Social icons styling */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 45px;
+  margin-top: 20px;
 }
 
-.section-heading {
-    margin: 0;
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  transition: var(--transition);
 }
 
-.publications-section {
-    margin-top: 40px;
+.icon-container a {
+  font-size: 2rem;
+  color: var(--social-icon-color);
+  margin-bottom: 10px;
 }
 
-.publications-section h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+.icon-container a:hover {
+  color: var(--social-hover-color);
 }
 
-.publications-section ul {
-    list-style-type: none;
-    padding: 0;
+.icon-container p {
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--text-color);
 }
 
-.publications-section li {
-    margin-bottom: 10px;
+/* Blog posts styling */
+.blog-posts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
 }
 
-ul.publications {
-    list-style-type: none;
-    padding-left: 0;
-    text-indent: 0;
-}
-
-ul.publications li {
-    padding-left: 2em;
-    text-indent: -2em;
-}
-
-.section-text-wrapper.publications-section {
-    text-align: left;
-}
-
-ul.publications a {
-    color: rgb(90, 90, 91);
-    text-decoration: underline;
+.blog-post-link {
+  flex: 0 0 calc(33.333% - 15px);
+  text-decoration: none;
+  color: var(--text-color);
+  display: block;
 }
 
 .blog-post {
-    flex: 0 0 calc(50% - 20px);
-    max-width: calc(50% - 20px);
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    border: 1px dashed #e8e8e8f9;
-    padding: 15px;
-    background-color: #fff;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.blog-post p {
-    margin: 0 0 5px;
-    font-style: italic;
-    font-size: 12px;
+.blog-post-link:hover .blog-post {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 }
 
 .blog-post img {
-    max-width: 90%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
 }
 
-.blog-post a.read-more {
-    display: block;
-    margin-top: 10px;
-}
-
-.blog-posts-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 0 auto;
+.blog-post-content {
+  padding: 12px 15px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
 }
 
 .blog-post h2 {
-    font-size: 18px;
-    margin: 10px 0 5px;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  line-height: 1.3;
+  /* Set a fixed height for title to ensure consistent layout */
+  min-height: 2.6rem;
+}
+
+.blog-post p {
+  font-size: 0.8rem;
+  color: var(--text-color);
+  opacity: 0.8;
+  margin-top: auto;
+  position: absolute;
+  bottom: 12px;
+  left: 15px;
+}
+
+/* Publications styling */
+.publications {
+  list-style-type: none;
+}
+
+.publications li {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.publications a {
+  color: var(--accent-color);
+  word-break: break-word;
+}
+
+/* Experience table styling */
+.experience-table {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.experience-table td {
+  padding: 8px 0;
+  vertical-align: top;
+}
+
+.experience-table tr:not(:last-child) td {
+  padding-bottom: 12px;
+}
+
+.experience-table td:first-child {
+  width: 33.3%;
+  white-space: nowrap;
+  text-align: right;
+  padding-right: 40px;
+}
+
+.experience-table td:nth-child(2) {
+  width: 33.4%;
+  text-align: center;
+}
+
+.experience-table td:last-child {
+  width: 33.3%;
+  padding-left: 40px;
+}
+
+.experience-table a {
+  color: var(--accent-color);
+}
+
+/* Video container */
+.video-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.video-wrapper {
+  flex: 0 0 auto;
+  position: relative;
+  width: 480px;
+  max-width: 45%;
+}
+
+.video-container iframe {
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: block;
+}
+
+/* Video responsive adjustments */
+@media (max-width: 767px) {
+  .video-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .video-wrapper {
+    width: 100%;
+    max-width: 480px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Dark mode toggle */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--menu-text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 15px;
+  transition: var(--transition);
+}
+
+.theme-toggle:hover {
+  color: var(--nav-hover-color);
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .blog-post-link {
+    flex: 0 0 calc(50% - 10px);
+  }
+  
+  .experience-table td {
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-menu {
+    flex-direction: column;
+    padding: 10px 0;
+    height: auto;
+  }
+  
+  .top-menu ul {
+    position: static;
+    transform: none;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .top-menu li {
+    margin: 5px 10px;
+  }
+  
+  .heading-container h1 {
+    font-size: 1.5rem;
+  }
+  
+  .profile-image {
+    width: 90%;
+  }
+  
+  .experience-table {
+    border-spacing: 0;
+  }
+  
+  .experience-table td {
+    display: block;
+    width: 100% !important;
+    text-align: left !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  
+  .experience-table td:first-child {
+    font-weight: bold;
+    padding-bottom: 0;
+    text-align: left !important;
+  }
+  
+  .experience-table td:nth-child(2) {
+    text-align: left !important;
+  }
+  
+  .experience-table td:last-child {
+    padding-top: 5px;
+    padding-bottom: 15px;
+  }
+  
+  .experience-table tr:not(:last-child) td:last-child {
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .blog-post-link {
+    flex: 0 0 100%;
+    margin-bottom: 15px;
+  }
+  
+  .container {
+    width: 95%;
+  }
+  
+  .social-icons {
+    gap: 20px;
+  }
+  
+  .icon-container a {
+    font-size: 1.5rem;
+  }
+  
+  .heading-container h1 {
+    font-size: 1.3rem;
+    padding: 0 10px;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Side Projects styling */
+.side-projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.side-project-link {
+  text-decoration: none;
+  color: var(--text-color);
+  display: block;
+  width: calc(50% - 15px);
+  max-width: 480px;
+}
+
+.side-project {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.side-project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.side-project h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: var(--heading-color);
+}
+
+.side-project p {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+/* Project demo styling */
+.project-demo {
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 250px;
+}
+
+.demo-gif {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  object-fit: contain;
+}
+
+/* Make Chess2 GIF smaller */
+.chess2-gif {
+  max-width: 60%;
+  margin: 0 auto;
+  margin-top: -15px;
+}
+
+/* Style for ArguMentor GIF */
+.argumentor-gif {
+  max-width: 100%;
+  max-height: 350px;
+  margin: 0 auto;
+  margin-top: -10px; /* Keep negative margin to move it up */
+}
+
+.side-project:hover .demo-gif {
+  transform: scale(1.02);
+}
+
+/* Responsive adjustments for side projects */
+@media (max-width: 768px) {
+  .side-projects-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .side-project-link {
+    width: 100%; /* Full width on smaller screens */
+    max-width: 100%;
+  }
+  
+  .project-demo {
+    min-height: auto; /* Remove minimum height on mobile */
+    margin-bottom: 10px;
+  }
+}
+
+/* Media query for larger screens to ensure side projects display properly */
+@media (min-width: 769px) {
+  .side-projects-container {
+    align-items: stretch; /* Ensure items stretch to match the tallest item */
+  }
+  
+  .side-project {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .project-demo {
+    margin-top: auto; /* Push demo to bottom of container */
+    padding-top: 15px;
+  }
+  
+  /* Special positioning for ArguMentor demo in desktop view */
+  .side-project:first-child .project-demo {
+    margin-top: 15px;
+  }
 }
