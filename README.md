@@ -12,7 +12,8 @@ source .venv/bin/activate
 Install dependencies:
 
 ```bash
-uv pip install -r requirements.txt
+uv pip install -e .
+uv pip install -e ".[dev]"
 ```
 
 Run:
@@ -26,6 +27,12 @@ Navigate to `http://localhost:5001`
 ## Deployment to Heroku
 
 Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli).
+
+If dependencies were changed in pyproject.toml, update requirements.txt:
+
+```bash
+uv pip compile pyproject.toml -o requirements.txt
+```
 
 Login:
 
