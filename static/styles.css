@@ -158,8 +158,9 @@ a:hover {
 
 /* Section styling */
 .section {
-  margin-bottom: 40px; /* Reduced from 60px to 40px */
+  margin-bottom: 40px;
   padding: 20px 0;
+  scroll-margin-top: 140px;
 }
 
 /* Add specific styling for blog posts section */
@@ -445,22 +446,53 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+  body {
+    padding-top: 140px;
+  }
+  
   .top-menu {
     flex-direction: column;
-    padding: 10px 0;
+    padding: 8px 0;
     height: auto;
   }
   
   .top-menu ul {
     position: static;
     transform: none;
-    margin-top: 10px;
+    margin-top: 8px;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 12px;
+    padding: 0 10px;
   }
   
   .top-menu li {
-    margin: 5px 10px;
+    margin: 0;
+  }
+
+  .top-menu a {
+    font-size: 13px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+
+  .top-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .logo {
+    margin-bottom: 4px;
+  }
+
+  .logo img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .theme-toggle {
+    font-size: 1.2rem;
+    margin-top: 8px;
   }
   
   .heading-container h1 {
@@ -501,6 +533,10 @@ a:hover {
   .experience-table tr:not(:last-child) td:last-child {
     padding-bottom: 20px;
   }
+
+  .section {
+    scroll-margin-top: 140px; /* Match the body padding-top */
+  }
 }
 
 @media (max-width: 576px) {
@@ -525,11 +561,20 @@ a:hover {
     font-size: 1.3rem;
     padding: 0 10px;
   }
+
+  .section {
+    scroll-margin-top: 160px;
+  }
+  
+  html {
+    scroll-padding-top: 160px;
+  }
 }
 
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 140px;
 }
 
 /* Side Projects styling */
@@ -625,7 +670,7 @@ html {
   }
   
   .side-project-link {
-    width: 100%; /* Full width on smaller screens */
+    width: 100%;
     max-width: 100%;
   }
   
