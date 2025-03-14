@@ -78,7 +78,7 @@ a:hover {
   left: 0;
   right: 0;
   background-color: var(--menu-bg);
-  z-index: 100;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -86,38 +86,6 @@ a:hover {
   box-shadow: var(--shadow);
   transition: var(--transition);
   height: 60px; /* Fixed height for consistency */
-}
-
-/* Style the menu items */
-.top-menu ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.top-menu li {
-  margin: 0 15px;
-  padding: 0;
-}
-
-.top-menu a {
-  color: var(--menu-text);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 16px;
-  transition: var(--transition);
-}
-
-/* Add a smooth scroll effect to section links */
-.top-menu a[href^="#"] {
-  transition: var(--transition);
-}
-
-.top-menu a[href^="#"]:hover {
-  color: var(--nav-hover-color);
 }
 
 /* Style the logo */
@@ -130,6 +98,38 @@ a:hover {
   width: 40px;
   height: 40px;
   object-fit: contain;
+}
+
+/* Style the desktop menu */
+.desktop-menu {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.desktop-menu ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.desktop-menu li {
+  margin: 0 15px;
+  padding: 0;
+}
+
+.desktop-menu a {
+  color: var(--menu-text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+.desktop-menu a:hover {
+  color: var(--nav-hover-color);
 }
 
 /* Dark mode toggle positioning */
@@ -447,60 +447,78 @@ a:hover {
 
 @media (max-width: 768px) {
   body {
-    padding-top: 140px;
+    padding-top: 60px;
   }
   
+  .container {
+    padding-top: 10px;
+  }
+  
+  /* Ensure menu layout is correct */
   .top-menu {
-    flex-direction: column;
-    padding: 8px 0;
-    height: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    height: 60px;
   }
   
-  .top-menu ul {
-    position: static;
-    transform: none;
-    margin-top: 8px;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    padding: 0 10px;
-  }
-  
-  .top-menu li {
-    margin: 0;
-  }
-
-  .top-menu a {
-    font-size: 13px;
-    padding: 4px 8px;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
-  }
-
-  .top-menu a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
+  /* Only show one logo in the left corner */
   .logo {
-    margin-bottom: 4px;
+    display: flex;
+    position: relative;
+    z-index: 1000;
   }
-
-  .logo img {
-    width: 32px;
-    height: 32px;
+  
+  /* Hide the desktop menu on mobile */
+  .desktop-menu {
+    display: none;
   }
-
-  .theme-toggle {
-    font-size: 1.2rem;
-    margin-top: 8px;
+  
+  /* Show and position mobile controls correctly */
+  .mobile-controls {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+  }
+  
+  /* Show the hamburger menu button */
+  .mobile-menu-toggle {
+    display: block;
+    margin-right: 10px;
+  }
+  
+  /* Remove any duplicate menu items */
+  .top-menu ul {
+    display: none;
+  }
+  
+  /* Fix scrolling issues when menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+  
+  .section {
+    position: relative;
+    z-index: 1; /* Lower z-index than the menu */
+    margin-top: 30px; /* Increase space between sections */
+    margin-bottom: 30px; /* Add bottom margin */
+    scroll-margin-top: 70px; /* For smooth scrolling */
+    clear: both; /* Ensure it clears any floats */
+  }
+  
+  .profile-image {
+    margin-top: 40px; /* Increase space between menu and profile image */
+    margin-bottom: 40px; /* Add bottom margin */
+    width: 90%;
+    position: relative;
+    z-index: 1;
+    display: block; /* Ensure it's a block element */
+    clear: both; /* Ensure it clears any floats */
   }
   
   .heading-container h1 {
     font-size: 1.5rem;
-  }
-  
-  .profile-image {
-    width: 90%;
   }
   
   .experience-table {
@@ -532,10 +550,6 @@ a:hover {
   
   .experience-table tr:not(:last-child) td:last-child {
     padding-bottom: 20px;
-  }
-
-  .section {
-    scroll-margin-top: 140px; /* Match the body padding-top */
   }
 }
 
@@ -700,5 +714,161 @@ html {
   /* Special positioning for ArguMentor demo in desktop view */
   .side-project:first-child .project-demo {
     margin-top: 15px;
+  }
+}
+
+/* Mobile controls */
+.mobile-controls {
+  display: flex;
+  align-items: center;
+}
+
+/* Mobile menu toggle button */
+.mobile-menu-toggle {
+  display: none; /* Hidden by default on desktop */
+  background: none;
+  border: none;
+  color: var(--menu-text);
+  font-size: 1.8rem;
+  cursor: pointer;
+  margin-right: 10px;
+  padding: 5px;
+  z-index: 1001;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+  color: var(--nav-hover-color);
+}
+
+/* Mobile navigation */
+.mobile-nav {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background-color: var(--menu-bg);
+  z-index: 999;
+  box-shadow: var(--shadow);
+  padding: 15px 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-nav.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-nav li {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.mobile-nav a {
+  display: block;
+  color: var(--menu-text);
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 15px;
+  transition: var(--transition);
+}
+
+.mobile-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  /* Show mobile menu toggle on mobile */
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
+  /* Hide desktop menu on mobile */
+  .desktop-menu {
+    display: none;
+  }
+  
+  /* Style the top menu for mobile */
+  .top-menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    height: 60px;
+  }
+  
+  /* Adjust logo size for mobile */
+  .logo img {
+    width: 32px;
+    height: 32px;
+  }
+  
+  /* Remove any styles that might cause duplication */
+  .top-menu ul {
+    display: none;
+  }
+}
+
+/* Use this instead of redundant rules with !important */
+@media (min-width: 769px) {
+  /* Hide mobile menu elements on desktop */
+  .mobile-menu-toggle {
+    display: none;
+  }
+  
+  .mobile-nav {
+    display: none;
+  }
+  
+  /* Show desktop menu on desktop */
+  .desktop-menu {
+    display: block;
+  }
+}
+
+/* Replace with this */
+a[href^="#"] {
+  transition: var(--transition);
+}
+
+a[href^="#"]:hover {
+  color: var(--nav-hover-color);
+}
+
+/* Add styles to prevent section headings from appearing as overlays */
+.section .heading-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Add styles for when the mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  /* Show mobile menu toggle on mobile */
+  .mobile-menu-toggle {
+    display: block !important; /* Force display with !important */
+  }
+  
+  /* Hide desktop menu */
+  .desktop-menu {
+    display: none !important; /* Force hide with !important */
+  }
+  
+  /* Ensure mobile controls are displayed */
+  .mobile-controls {
+    display: flex !important; /* Force display with !important */
   }
 }
