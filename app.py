@@ -65,6 +65,11 @@ Talisman(
         ],
     },
     content_security_policy_nonce_in=["script-src"],
+    permissions_policy={
+        "camera": "()",
+        "microphone": "()",
+        "geolocation": "()"
+    }
 )
 
 
